@@ -1,0 +1,139 @@
+<div class="min-h-screen bg-gray-100 py-8">
+  <div class="container mx-auto px-6">
+    <h1 class="text-3xl font-extrabold text-gray-800 mb-8 text-center">Image Gallery</h1>
+
+    <!-- Loading State -->
+    <div class="flex justify-center items-center h-64" *ngIf="loading">
+      <svg class="w-12 h-12 text-indigo-600 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+
+    <!-- Gallery Closures -->
+    <div *ngIf="!loading">
+      <div *ngIf="galleryImages.length > 0; else noImages" class="space-y-6">
+        <!-- Closure 1 -->
+        <div class="bg-white rounded-lg shadow-md">
+          <button (click)="toggleClosure(0)" class="w-full flex justify-between items-center p-4 bg-indigo-600 text-white rounded-t-lg hover:bg-indigo-700 transition">
+            <span class="text-lg font-semibold">Nature</span>
+            <svg class="w-6 h-6 transition-transform" [class.rotate-180]="openClosures[0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div *ngIf="openClosures[0]" class="p-4 relative overflow-hidden">
+            <p-carousel [value]="getClosureImages(0)" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true" [autoplayInterval]="3000">
+              <ng-template let-image pTemplate="item">
+                <div class="border border-gray-200 rounded-lg m-2 p-4 relative">
+                  <img [src]="image.url" [alt]="image.title" class="w-full h-48 object-cover rounded-lg">
+                  <div class="mt-2 text-center font-medium text-gray-700">{{ image.title }}</div>
+                </div>
+              </ng-template>
+            </p-carousel>
+            <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- Closure 2 -->
+        <div class="bg-white rounded-lg shadow-md">
+          <button (click)="toggleClosure(1)" class="w-full flex justify-between items-center p-4 bg-indigo-600 text-white rounded-t-lg hover:bg-indigo-700 transition">
+            <span class="text-lg font-semibold">Urban</span>
+            <svg class="w-6 h-6 transition-transform" [class.rotate-180]="openClosures[1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div *ngIf="openClosures[1]" class="p-4 relative overflow-hidden">
+            <p-carousel [value]="getClosureImages(1)" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true" [autoplayInterval]="3000">
+              <ng-template let-image pTemplate="item">
+                <div class="border border-gray-200 rounded-lg m-2 p-4 relative">
+                  <img [src]="image.url" [alt]="image.title" class="w-full h-48 object-cover rounded-lg">
+                  <div class="mt-2 text-center font-medium text-gray-700">{{ image.title }}</div>
+                </div>
+              </ng-template>
+            </p-carousel>
+            <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- Closure 3 -->
+        <div class="bg-white rounded-lg shadow-md">
+          <button (click)="toggleClosure(2)" class="w-full flex justify-between items-center p-4 bg-indigo-600 text-white rounded-t-lg hover:bg-indigo-700 transition">
+            <span class="text-lg font-semibold">Landscapes</span>
+            <svg class="w-6 h-6 transition-transform" [class.rotate-180]="openClosures[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div *ngIf="openClosures[2]" class="p-4 relative overflow-hidden">
+            <p-carousel [value]="getClosureImages(2)" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true" [autoplayInterval]="3000">
+              <ng-template let-image pTemplate="item">
+                <div class="border border-gray-200 rounded-lg m-2 p-4 relative">
+                  <img [src]="image.url" [alt]="image.title" class="w-full h-48 object-cover rounded-lg">
+                  <div class="mt-2 text-center font-medium text-gray-700">{{ image.title }}</div>
+                </div>
+              </ng-template>
+            </p-carousel>
+            <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- Closure 4 -->
+        <div class="bg-white rounded-lg shadow-md">
+          <button (click)="toggleClosure(3)" class="w-full flex justify-between items-center p-4 bg-indigo-600 text-white rounded-t-lg hover:bg-indigo-700 transition">
+            <span class="text-lg font-semibold">Portraits</span>
+            <svg class="w-6 h-6 transition-transform" [class.rotate-180]="openClosures[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div *ngIf="openClosures[3]" class="p-4 relative overflow-hidden">
+            <p-carousel [value]="getClosureImages(3)" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true" [autoplayInterval]="3000">
+              <ng-template let-image pTemplate="item">
+                <div class="border border-gray-200 rounded-lg m-2 p-4 relative">
+                  <img [src]="image.url" [alt]="image.title" class="w-full h-48 object-cover rounded-lg">
+                  <div class="mt-2 text-center font-medium text-gray-700">{{ image.title }}</div>
+                </div>
+              </ng-template>
+            </p-carousel>
+            <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- Closure 5 -->
+        <div class="bg-white rounded-lg shadow-md">
+          <button (click)="toggleClosure(4)" class="w-full flex justify-between items-center p-4 bg-indigo-600 text-white rounded-t-lg hover:bg-indigo-700 transition">
+            <span class="text-lg font-semibold">Abstract</span>
+            <svg class="w-6 h-6 transition-transform" [class.rotate-180]="openClosures[4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div *ngIf="openClosures[4]" class="p-4 relative overflow-hidden">
+            <p-carousel [value]="getClosureImages(4)" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true" [autoplayInterval]="3000">
+              <ng-template let-image pTemplate="item">
+                <div class="border border-gray-200 rounded-lg m-2 p-4 relative">
+                  <img [src]="image.url" [alt]="image.title" class="w-full h-48 object-cover rounded-lg">
+                  <div class="mt-2 text-center font-medium text-gray-700">{{ image.title }}</div>
+                </div>
+              </ng-template>
+            </p-carousel>
+            <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Images Template -->
+      <ng-template #noImages>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+          <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <p class="text-lg font-medium text-gray-600">No images available</p>
+          <p class="text-gray-500">Please check the API or try again later.</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

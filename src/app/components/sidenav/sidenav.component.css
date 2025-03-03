@@ -1,0 +1,44 @@
+/* .sidenav {
+    height: 100%;
+    width: 0; Closed state
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+  }
+  
+  .sidenav.open {
+    width: 250px; Open state
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .close-btn:hover {
+    color: #ff0000;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 0;
+  }
+  
+  a:hover {
+    color: #007bff;
+  } */

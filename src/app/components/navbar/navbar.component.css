@@ -1,0 +1,41 @@
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #9e9e9e;
+  color: white;
+}
+
+.hamburger, .profile-icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+.right {
+  position: relative;
+}
+
+.profile-popup {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-details p {
+  margin: 5px 0;
+} */

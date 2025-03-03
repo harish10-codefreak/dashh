@@ -1,0 +1,20 @@
+<div class="container mx-auto p-6 bg-gray-100 min-h-screen">
+  <h1 class="text-3xl font-extrabold text-gray-800 mb-8 text-center">Dashboard</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" *ngIf="isBrowser">
+    <!-- Sales Bar Chart -->
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <h3 class="text-xl font-semibold text-gray-700 mb-4 text-center">Sales Overview</h3>
+      <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType" class="w-full h-64"></canvas>
+    </div>
+    <!-- Visits Line Chart -->
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <h3 class="text-xl font-semibold text-gray-700 mb-4 text-center">Visitor Trends</h3>
+      <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType" class="w-full h-64"></canvas>
+    </div>
+    <!-- Product Pie Chart -->
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <h3 class="text-xl font-semibold text-gray-700 mb-4 text-center">Product Distribution</h3>
+      <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [type]="pieChartType" class="w-full h-64"></canvas>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<!-- <nav class="navbar">
+    <div class="left">
+      <img src="assets/icons/hm.svg" alt="Menu" class="hamburger" (click)="toggleSidenav()">
+    </div>
+    <div class="right">
+      <img src="assets/icons/profile.svg" alt="Profile" class="profile-icon" (click)="toggleProfilePopup($event)">
+      <div class="profile-popup" *ngIf="showProfilePopup">
+        <img src="assets/images/profsav.jpg" alt="User" class="user-image">
+        <div class="user-details">
+          <p><strong>Name:</strong> Rick Grimes</p>
+          <p><strong>Email:</strong> Heyyitsmee&#64;gmail.com</p>
+          <p><strong>Role:</strong> Developer</p>
+        </div>
+      </div>
+    </div>
+  </nav> -->
+
+  <nav class="flex justify-between items-center p-4 bg-grey-800 text-white shadow-md">
+    <div class="left">
+      <img src="assets/icons/hm.svg" alt="Menu" class="w-8 md:w-10 cursor-pointer" (click)="toggleSidenav()">
+    </div>
+    <div class="right relative">
+      <img src="assets/icons/profile.svg" alt="Profile" class="w-8 md:w-10 cursor-pointer" (click)="toggleProfilePopup($event)">
+      <div class="absolute top-12 right-0 bg-white text-gray-800 p-4 rounded-lg shadow-lg flex items-center gap-4 z-50" *ngIf="showProfilePopup">
+        <img src="assets/images/profsav.jpg" alt="User" class="w-12 h-12 rounded-full">
+        <div>
+          <p class="text-sm md:text-base"><strong>Name:</strong> Rick Grimes</p>
+          <p class="text-sm md:text-base"><strong>Email:</strong> Heyyitsmee&#64;gmail.com</p>
+          <p class="text-sm md:text-base"><strong>Role:</strong> Developer</p>
+        </div>
+      </div>
+    </div>
+  </nav>

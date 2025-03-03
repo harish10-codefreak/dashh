@@ -1,0 +1,9 @@
+<div class="min-h-screen bg-gray-50 flex">
+  <app-sidenav [isOpen]="(sidenavOpen$ | async) ?? false" class="flex-shrink-0"></app-sidenav>
+  <div class="flex-1 flex flex-col">
+    <app-navbar></app-navbar>
+    <main class="flex-1 p-4" [ngClass]="{'ml-64': (sidenavOpen$ | async)}">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
