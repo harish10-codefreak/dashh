@@ -1,9 +1,7 @@
 .app-container {
     min-height: 100vh;
-    background-color: #f7fafc;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
   
   .content-wrapper {
@@ -14,9 +12,9 @@
   .main-content {
     flex: 1;
     padding: 1rem;
-    transition: margin-left 0.3s ease-in-out;
+    transition: margin-left 0.3s ease;
   }
   
   .main-content.sidenav-open {
-    margin-left: 16rem;
+    margin-left: 250px; /* Matches sidenav width */
   }

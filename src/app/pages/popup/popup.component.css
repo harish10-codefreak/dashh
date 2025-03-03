@@ -1,0 +1,4 @@
+/* Optional: Add custom styles if needed */
+input:focus {
+    outline: none;
+  }

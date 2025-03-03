@@ -1,1 +1,44 @@
-<p>popup works!</p>
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <!-- Success Message -->
+    <div class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300" [ngClass]="{'opacity-100': showSuccess, 'opacity-0': !showSuccess}" *ngIf="showSuccess">
+      Successfully Submitted!
+    </div>
+  
+    <!-- Popup Form -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Contact Form</h2>
+      <form [formGroup]="popupForm" (ngSubmit)="onSubmit()" class="space-y-">
+        <!-- Name Field -->
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+          <input id="name" type="text" formControlName="name" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" [ngClass]="{'border-red-500': popupForm.get('name')?.invalid && submitted}">
+          <p class="text-red-500 text-sm mt-1" *ngIf="popupForm.get('name')?.invalid && submitted">Name is required.</p>
+        </div>
+  
+        <!-- Email Field -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input id="email" type="email" formControlName="email" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" [ngClass]="{'border-red-500': popupForm.get('email')?.invalid && submitted}">
+          <p class="text-red-500 text-sm mt-1" *ngIf="popupForm.get('email')?.invalid && submitted">
+            <span *ngIf="popupForm.get('email')?.errors?.['required']">Email is required.</span>
+            <span *ngIf="popupForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+          </p>
+        </div>
+  
+        <!-- Number Field -->
+        <div>
+          <label for="number" class="block text-sm font-medium text-gray-700">Number</label>
+          <input id="number" type="text" formControlName="number" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" [ngClass]="{'border-red-500': popupForm.get('number')?.invalid && submitted}">
+          <p class="text-red-500 text-sm mt-1" *ngIf="popupForm.get('number')?.invalid && submitted">
+            <span *ngIf="popupForm.get('number')?.errors?.['required']">Number is required.</span>
+            <span *ngIf="popupForm.get('number')?.errors?.['pattern']">Enter a 10-digit number.</span>
+          </p>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
