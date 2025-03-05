@@ -1,0 +1,8 @@
+{
+  "/Cariq": {
+    "target": "https://dev-ecu.mycariq.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

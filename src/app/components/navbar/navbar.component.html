@@ -17,12 +17,12 @@
 
   <nav class="flex justify-between items-center p-4 bg-grey-800 text-white shadow-md">
     <div class="left">
-      <img src="/assets/iconss/burger-solid.svg" alt="Menu" class="w-8 md:w-10 cursor-pointer" (click)="toggleSidenav()">
+      <img src="/public/assets/iconss/hmm.svg" alt="Menu" class="w-8 md:w-10 cursor-pointer" (click)="toggleSidenav()">
     </div>
     <div class="right relative">
-      <img src="assets/icons/profilee.svg" alt="Profile" class="w-8 md:w-10 cursor-pointer" (click)="toggleProfilePopup($event)">
+      <img src="/public/assets/iconss/profilee.svg" alt="Profile" class="w-8 md:w-10 cursor-pointer" (click)="toggleProfilePopup($event)">
       <div class="absolute top-12 right-0 bg-white text-gray-800 p-4 rounded-lg shadow-lg flex items-center gap-4 z-50" *ngIf="showProfilePopup">
-        <img src="assets/images/profsave.jpg" alt="User" class="w-12 h-12 rounded-full">
+        <img src="/public/assets/imagess/profsave.jpg" alt="User" class="w-12 h-12 rounded-full">
         <div>
           <p class="text-sm md:text-base"><strong>Name:</strong> Rick Grimes</p>
           <p class="text-sm md:text-base"><strong>Email:</strong> Heyyitsmee&#64;gmail.com</p>
